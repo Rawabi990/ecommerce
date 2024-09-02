@@ -30,6 +30,41 @@ document.querySelectorAll('.color-option input[type="radio"]').forEach(item => {
 })
 
 
+//حساب سعر أجمالي المنتج 
+
+document.querySelectorAll('[data-product-quantity]').forEach(item => {
+    item.addEventListener('change', () => {
+        const newQuantity = item.value;
+        const parent = item.closest('[data-product-info]');
+        const pricePerUbit = parent.getAttribute('data-product-price');
+        const totalPriceForProduct = newQuantity * pricePerUbit 
+        parent.querySelector('.total-price-for-product').innerHTML = totalPriceForProduct + "$";
+
+        calculateTotalPrice()
+    })
+})
+
+document.querySelectorAll('[data-remove-from-card]').forEach(item => {
+    item.addEventListener('click', () => {
+        item.closest('[data-product-info]').remove()
+        calculateTotalPrice()
+        
+    })
+})
+
+function calculateTotalPrice() {
+    let totalPriceForAllProduct = 0;
+    document.querySelectorAll('[data-product-info]').forEach(product => {
+        const pricePerUbit = product.getAttribute('data-product-price');
+        const quantity = product.querySelector('[data-product-quantity]').value
+        const totalPriceForProduct = pricePerUbit * quantity 
+
+        totalPriceForAllProduct = totalPriceForAllProduct + totalPriceForProduct;
+    })
+    document.getElementById('total-price-for-all-product').innerHTML = totalPriceForAllProduct + '$'
+}
+
+
 document.getElementById("copyright").innerHTML = "جميع الحقوق محفوظة للمتجر سنة " + new Date().getFullYear()
 
 
