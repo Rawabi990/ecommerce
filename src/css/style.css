@@ -712,6 +712,25 @@ h1.custom-heading {
     border-color: #F8AD47 !important;
 }
 
+/*-------- contact page --------  */
+
+#map {
+    padding: 0;
+}
+
+#contact-options h4 {
+    font-size: 18px;
+}
+
+#contact-info .fa-lg {
+    color: #f3af41;
+    margin: 10px 0px 0px 10px;
+}
+
+#contact-options textarea {
+    height: 105px !important;
+}
+
 @media (max-width: 1399.98px) { }
 
 
@@ -828,6 +847,15 @@ h1.custom-heading {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    #form-subscription {
+        margin-bottom: 25px;
+    }
+
+    #contact-options input[name=name]
+    {
+        margin-bottom: 15px;
     }
 
  }
